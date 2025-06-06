@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+    stages {
+        stage('checkout') {
+            steps {
+                sh 'echo "checkout from git"'
+                sh '''
+                    echo "checkout"
+                    ls -lah
+                '''
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'echo "Build"'
+                sh '''
+                    echo "Multiline shell steps works too"
+                    ls -lah
+                '''
+            }
+        }
+        stage('test') {
+            steps {
+                sh 'echo "test "'
+                sh '''
+                    echo "this stage is for testing"
+                    ls -lah
+                '''
+            }
+        }
+    }
+}
